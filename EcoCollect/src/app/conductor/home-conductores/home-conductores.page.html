@@ -1,13 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>home-conductores</ion-title>
+    <ion-title>Conductores - Recorrido de Rutas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">home-conductores</ion-title>
+      <ion-title size="large">Conductores</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+
+  <div class="mapa">
+    <div id="mapId" style="height: 50vh; width: 100%;"></div>
+
+  </div>
+
+
+  <div class="controls">
+    <ion-select placeholder="Selecciona una ruta" (ionChange)="seleccionarRuta($event)" interface="action-sheet">
+      <ion-select-option *ngFor="let ruta of rutasGuardadas" [value]="ruta.id">
+        {{ ruta.nombre_ruta }}
+      </ion-select-option>
+    </ion-select>
+    <ion-select (ionChange)="seleccionarVehiculo($event)" placeholder="Selecciona un vehículo" interface="action-sheet">
+      <ion-select-option *ngFor="let vehiculo of vehiculo" [value]="vehiculo.id">
+        {{ vehiculo.marca }} - {{ vehiculo.placa }}
+      </ion-select-option>
+
+    </ion-select>
+    <div class="buttons">
+      <ion-button class="inicio" color="success" (click)="toggleRecorridoMode()" [disabled]="!rutaSeleccionada">
+        {{ modoRecorrido ? 'Detener Recorrido' : 'Iniciar Recorrido' }}
+      </ion-button>
+    </div>
+  </div>
+  <div *ngIf="modoRecorrido" class="estado-recorrido">
+    <p>🔄 Recorriendo: {{ rutaSeleccionada?.nombre_ruta }}</p>
+    <p>📍 Punto: {{ indicePuntoActual + 1 }}/{{ puntosRutaActual.length }}</p>
+  </div>
+
+
 </ion-content>

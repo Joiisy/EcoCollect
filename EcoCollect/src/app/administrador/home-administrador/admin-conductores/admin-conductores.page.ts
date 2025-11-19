@@ -30,7 +30,7 @@ import {
   IonInput,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { add, arrowBack, personRemoveOutline, play } from 'ionicons/icons';
+import { add, arrowBack, personRemoveOutline, play, close } from 'ionicons/icons';
 import { AuthService } from 'src/services/auth';
 import { UserProfile } from 'src/interfaces/userprofile';
 import { Alerts } from 'src/services/alerts/alerts';
@@ -70,16 +70,14 @@ export class AdminConductoresPage implements OnInit {
   private AuthService = inject(AuthService);
   private Alerts = inject(Alerts);
   private loadingController = inject(LoadingController);
+  Perfil: UserProfile | null = null;
   conductores: UserProfile[] = [];
 
   modalAbierto = false;
+  modalAbiertoInfo = false;
 
   constructor() {
-    addIcons({
-      add,
-      arrowBack,
-      personRemoveOutline,
-    });
+    addIcons({arrowBack,personRemoveOutline,add,close,});
   }
 
   async ngOnInit() {
@@ -108,6 +106,15 @@ export class AdminConductoresPage implements OnInit {
     this.modalAbierto = false;
   }
 
+
+  abrirModalInfo() {
+    this.modalAbiertoInfo = true;
+  }
+
+  cerrarModalInfo() {
+    this.modalAbiertoInfo = false;
+  }
+
   async register() {
     if (this.registerForm.invalid) return this.Alerts.DataVacia();
 
@@ -128,6 +135,7 @@ export class AdminConductoresPage implements OnInit {
 
       if (result.success) {
         await loading.dismiss();
+        this.registerForm.reset();
       } else {
         await loading.dismiss();
       }
@@ -137,4 +145,10 @@ export class AdminConductoresPage implements OnInit {
       this.Alerts.DataIncorreta();
     }
   }
+
+  async verConductor(id: string) {
+    this.Perfil = await this.authService.getProfileById(id);
+    this.abrirModalInfo();
+  }
+
 }

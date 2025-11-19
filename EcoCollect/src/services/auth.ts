@@ -73,7 +73,6 @@ export class AuthService {
     return userData?.email || '';
   }
 
-  // 🔥 REGISTRO DIRECTO con la tabla profiles
   async register(formValue: { 
     name: string; 
     email: string; 
@@ -197,6 +196,65 @@ export class AuthService {
     }
   }
 
+  /**
+   @param id id del perfil a obtener
+   @param forceRefresh si es true fuerza la consulta al servidor y actualiza la cache
+   */
+  async getProfileById(id: string, forceRefresh = false): Promise<UserProfile | null> {
+    const cacheKey = `profile_${id}`;
+    try {
+      // intentar leer cache local
+      if (!forceRefresh) {
+        try {
+          const { value } = await Preferences.get({ key: cacheKey });
+          if (value) {
+            const cached = JSON.parse(value) as UserProfile;
+            return cached;
+          }
+        } catch (e) {
+          // si falla el parse o la lectura, seguimos y consultamos al servidor
+          console.warn('No se pudo leer cache de perfil (se consultará al servidor):', e);
+        }
+      }
+
+      const { data: profile, error } = await this.supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) {
+        console.error('Error obteniendo perfil por id:', error);
+        return null;
+      }
+
+      // guardar en cache (no bloquear si falla)
+      try {
+        await Preferences.set({ key: cacheKey, value: JSON.stringify(profile) });
+      } catch (e) {
+        console.warn('No se pudo cachear perfil:', e);
+      }
+
+      return profile;
+    } catch (error) {
+      console.error('Error en getProfileById:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Invalida el cache de un perfil guardado en Preferences
+   * @param id id del perfil a invalidar
+   */
+  async invalidateProfileCache(id: string): Promise<void> {
+    try {
+      const cacheKey = `profile_${id}`;
+      await Preferences.remove({ key: cacheKey });
+    } catch (e) {
+      console.warn('No se pudo invalidar cache de perfil:', e);
+    }
+  }
+
   async getAllConductores(): Promise<UserProfile[]> {
     try {
       const { data: conductors, error } = await this.supabase
@@ -216,7 +274,7 @@ export class AuthService {
     }
   }
 
-  // 🔥 Cerrar sesión
+  // Cerrar sesión
   async logout(): Promise<{ success: boolean; error?: string }> {
     try {
       await this.clearStorage();
@@ -227,7 +285,7 @@ export class AuthService {
     }
   }
 
-  // 🔥 Métodos para roles (SIMPLIFICADOS)
+  // Métodos para roles (SIMPLIFICADOS)
   async hasRole(requiredRole: string): Promise<boolean> {
     const user = await this.getUserProfile();
     return user?.role === requiredRole;
@@ -253,7 +311,7 @@ export class AuthService {
     return !!userId;
   }
 
-  // 🔥 Guardar sesión en Preferences
+  //  Guardar sesión en Preferences
   private async saveSession(user: UserProfile): Promise<void> {
     await this.setStorage('isLoggedIn', 'true');
     await this.setStorage('userEmail', user.email);
@@ -276,5 +334,7 @@ export class AuthService {
     for (const key of keys) {
       await Preferences.remove({ key });
     }
+
+
   }
 }

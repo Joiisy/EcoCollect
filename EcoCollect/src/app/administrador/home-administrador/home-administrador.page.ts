@@ -49,8 +49,7 @@ import {
   moon,
   locate,
   eyeOff,
-  eye,
-} from "ionicons/icons";
+  eye, people, car, logOut } from "ionicons/icons";
 import { CargaDatos } from "src/services/datos/carga-datos";
 import { Geolocation } from "@capacitor/geolocation";
 import Map from "ol/Map";
@@ -134,7 +133,7 @@ export class HomeAdministradorPage implements OnInit {
   guardandoRuta = false;
   cargandoRutas = false;
   isDarkMode = false;
-  rutasVisibles = true; // Nueva variable para controlar visibilidad
+  rutasVisibles = true; 
 
   // Variables para el recorrido
   modoRecorrido = false;
@@ -158,25 +157,7 @@ export class HomeAdministradorPage implements OnInit {
   userName = "";
 
   constructor() {
-    addIcons({
-      location,
-      document,
-      download,
-      copy,
-      trash,
-      notifications,
-      add,
-      play,
-      stop,
-      close,
-      refresh,
-      wifi,
-      sunny,
-      moon,
-      locate,
-      eyeOff,
-      eye,
-    });
+    addIcons({people,car,logOut,copy,trash,close,download,location,document,notifications,add,play,stop,refresh,wifi,sunny,moon,locate,eyeOff,eye,});
   }
 
   async ngOnInit() {
@@ -201,6 +182,9 @@ goConductores(){
   this.nav.navigateForward('/admin-conductores');
 }
 
+goVehiculos(){
+  this.nav.navigateForward('/vehiculos');
+}
 
   cerrarModalRutas() {
     this.modalRutasAbierto = false;
@@ -609,6 +593,7 @@ goConductores(){
 
     // Crear la ruta completa - shape como STRING del GeoJSON
     this.rutaCompleta = {
+      id: this.rutaCompleta?.id || '',
       nombre_ruta: this.nombreRuta,
       perfil_id: this.perfilId,
       shape: JSON.stringify(geoJsonLineString),

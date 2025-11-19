@@ -14,10 +14,7 @@ export const routes: Routes = [
     loadComponent: () => import('./auth/login/login.page').then( m => m.LoginPage)
   },
 
-  {
-    path: 'register',
-    loadComponent: () => import('./auth/register/register.page').then( m => m.RegisterPage)
-  },
+  
   {
     path: 'home-administrador',
     loadComponent: () => import('./administrador/home-administrador/home-administrador.page').then( m => m.HomeAdministradorPage)
@@ -29,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'admin-conductores',
     loadComponent: () => import('./administrador/home-administrador/admin-conductores/admin-conductores.page').then( m => m.AdminConductoresPage)
+  },
+  {
+    path: 'vehiculos',
+    loadComponent: () => import('./administrador/vehiculos/vehiculos.page').then( m => m.VehiculosPage)
   },
   
 ];
