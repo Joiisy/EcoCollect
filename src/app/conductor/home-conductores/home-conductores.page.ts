@@ -237,8 +237,8 @@ vehiculoSeleccionado: any;
   }
 
   async toggleRecorridoMode() {
-    if (!this.rutaSeleccionada) {
-      await this.mostrarAlerta('Error', 'Por favor selecciona una ruta primero');
+    if (!this.rutaSeleccionada || !this.vehiculoId) {
+      await this.mostrarAlerta('Error', 'Por favor selecciona una ruta y un vehículo primero');
       return;
     }
 

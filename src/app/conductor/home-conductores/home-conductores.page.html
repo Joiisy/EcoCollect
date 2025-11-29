@@ -106,7 +106,7 @@
         class="main-btn" 
         expand="block" 
         (click)="toggleRecorridoMode()" 
-        [disabled]="!rutaSeleccionada"
+        [disabled]="!rutaSeleccionada || !vehiculoId"
         [class.recorriendo]="modoRecorrido">
         <ion-icon [name]="modoRecorrido ? 'stop-circle' : 'play-circle'" slot="start"></ion-icon>
         {{ modoRecorrido ? 'Detener Recorrido' : 'Iniciar Recorrido' }}
