@@ -1,0 +1,59 @@
+.back{
+    --color: black;
+}
+
+.modal-fixed-height {
+  --height: 50vh;
+  --width: 90%;
+  --max-width: 400px;
+  --border-radius: 12px;
+  
+  .modal-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    background: rgb(0, 190, 75);
+    color: white;
+    
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+  
+  .modal-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.container-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    margin-top: 4%;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px;
+}
+
+

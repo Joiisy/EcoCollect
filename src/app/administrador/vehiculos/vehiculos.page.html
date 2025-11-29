@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-button (click)="back()" class="back" fill="clear">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button> </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!-- botón flotante (solo icono) -->
+    <ion-fab-button (click)="abrirModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal [isOpen]="modalAbierto" (didDismiss)="cerrarModal()" class="modal-fixed-height">
+    <ng-template>
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Agregar Vehículos</h2>
+          <ion-button fill="clear" (click)="cerrarModal()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </div>
+
+        <form [formGroup]="vehiculoForm" class="info" (ngSubmit)="registrarVehiculo()">
+
+          <ion-item>
+            <ion-input placeholder="Placa" type="text" formControlName="placa">
+            </ion-input>
+
+          </ion-item>
+
+            <ion-item>
+              <ion-select aria-label="Fruit" interface="popover" placeholder="Selecciona Marca" formControlName="marca">
+                <ion-select-option value="Heil">Heil</ion-select-option>
+                <ion-select-option value="McNeilus">McNeilus</ion-select-option>
+                <ion-select-option value="Mercedez-Benz">Mercedez-Benz</ion-select-option>
+              </ion-select>
+          </ion-item>
+         <ion-item>
+              <ion-select aria-label="Año" interface="popover" placeholder="Selecciona modelo" formControlName="modelo">
+                <ion-select-option *ngFor="let ano of anos" [value]="ano">{{ ano }}</ion-select-option>
+              </ion-select>
+          </ion-item>
+
+
+
+          <div class="btn">
+            <ion-button color="success" class="buttonIni" type="submit">Registrar Vehiculo</ion-button>
+          </div>
+        </form>
+
+
+
+      </div>
+    </ng-template>
+  </ion-modal>
+
+      <div class="container-title">
+
+    <ion-text class="title">
+      Vehiculos Activos
+    </ion-text>
+  </div>
+
+    <div class="conductores">
+    <ion-list>
+      <ion-item class="info" *ngFor="let vehiculo of vehiculo">
+        <ion-text class="name-conductor">{{ vehiculo.marca}}</ion-text>
+        <ion-button size="large" slot="end" fill="clear" color="danger">
+          <ion-icon name="person-remove-outline"></ion-icon>
+
+        </ion-button>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

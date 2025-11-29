@@ -1,0 +1,64 @@
+ion-content {
+  --background: rgb(0, 190, 75);
+  position: relative; /* Necesario para posicionar el .info dentro */
+  height: 100%;
+  min-height: 100vh;
+}
+
+ion-input{
+    margin-top: 4%;
+}
+
+.labelText{
+    margin-top: 5%;
+   padding-left: 5%;
+}
+
+ion-text{
+    font-size: 35px;
+}
+
+.logo {
+    color: white;
+  width: 100%;
+  height: 120px;
+  margin: 35% auto 0; /* Logo centrado arriba */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo ion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info {
+
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  height: 35vh;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonIni {
+    --border-radius: 15px;
+--background: rgb(80, 173, 80);
+  width: 90%;
+  height: 5vh;
+}

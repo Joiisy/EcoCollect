@@ -1,0 +1,271 @@
+
+
+/* Toolbar */
+.modern-toolbar {
+  --background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+  --color: white;
+  --min-height: 70px;
+}
+
+.modern-content {
+  --background: #f8f9fa;
+  --padding: 16px;
+}
+
+/* Tarjeta Vehículo */
+.vehicle-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.vehicle-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  background: rgba(67, 97, 238, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.vehicle-details {
+  flex: 1;
+}
+
+.vehicle-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.status-badge {
+  background: #e8f5e8;
+  color: var(--success);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: #ffe8e8;
+  color: var(--danger);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Sección Mapa */
+.map-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.map-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.map-header h3 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.paradas-count {
+  background: rgba(67, 97, 238, 0.1);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.map-container {
+  height: 250px;
+  background: #e8ecf1;
+}
+
+/* Controles */
+.controls-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.select-item {
+  margin-bottom: 20px;
+}
+
+.select-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.select-header ion-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.modern-select {
+  --border-radius: 12px;
+  --padding: 15px;
+  border: 1px solid var(--border);
+  background: var(--light);
+}
+
+/* Botón Principal */
+.main-btn {
+  --border-radius: 12px;
+  --padding-top: 18px;
+  --padding-bottom: 18px;
+  --background: var(--primary);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.main-btn.recorriendo {
+  --background: var(--success);
+}
+
+.live-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--danger);
+  animation: pulse 1.5s infinite;
+}
+
+/* Progreso */
+.progress-section {
+  margin-bottom: 20px;
+}
+
+.progress-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--success);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.progress-header h4 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dark);
+}
+
+.progress-header ion-icon {
+  color: var(--success);
+}
+
+.percent {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--success);
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.route-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.route-count {
+  background: rgba(67, 97, 238, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success), var(--primary));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Info */
+.info-section {
+  justify-content: center;
+  margin: auto;
+  display: flex;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.info-card {
+  background: rgba(67, 97, 238, 0.05);
+  border: 1px solid rgba(67, 97, 238, 0.2);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.info-card ion-icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+.info-text h4 {
+  margin: 0 0 5px 0;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.info-text p {
+  margin: 0;
+  color: var(--dark);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,27 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo">
+    <ion-img src="assets/logo.png"></ion-img>
+    <ion-text>EcoCollect</ion-text>
+    <p>Sistema de Recolección de Basura</p>
+  </div>
+
+<form [formGroup]="loginForm" class="info" (ngSubmit)="login()">
+        <div class="labelText"> <ion-label>Usuario o ID de empleado</ion-label>
+    </div>
+    <ion-item>
+      <ion-input formControlName="email" type="email" placeholder="Correo electrónico"></ion-input>
+    </ion-item>
+    <div class="labelText"> <ion-label>Contraseña</ion-label>
+    </div>
+    <ion-item>
+      <ion-input  formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+    <div class="btn">
+      <ion-button (click)="login()" class="buttonIni">Iniciar sesión</ion-button>
+    </div>
+
+  </form>
+
+</ion-content>

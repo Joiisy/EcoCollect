@@ -1,0 +1,717 @@
+/* Estilos generales */
+:root {
+  --primary-color: rgb(0, 190, 75);
+  --primary-dark: rgb(0, 160, 60);
+  --secondary-color: #3880ff;
+  --danger-color: #eb445a;
+  --warning-color: #ffc409;
+  --success-color: #2dd36f;
+  --light-color: #f4f5f8;
+  --medium-color: #92949c;
+  --dark-color: #222428;
+}
+
+/* Toolbar del menú */
+.toolbar-menu {
+  --background: var(--primary-color);
+  --color: white;
+  padding: 10px 0;
+}
+
+.avatar-menu {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.avatar-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.menu-title {
+  display: flex;
+  flex-direction: column;
+  
+  .user-name {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .user-role {
+    color: black;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+}
+
+.menu-content {
+  --background: var(--light-color);
+}
+
+.menu-list {
+  background: transparent;
+  padding: 0;
+}
+
+.menu-item {
+  --background: transparent;
+  --border-radius: 8px;
+  margin: 5px 10px;
+  
+  &.logout {
+    margin-top: 20px;
+    --background: rgba(235, 68, 90, 0.1);
+  }
+}
+
+.menu-icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Toolbar principal */
+.main-toolbar {
+  --background: white;
+  --color: var(--dark-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button {
+  color: var(--primary-color);
+}
+
+.page-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.role-badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Contenido principal */
+.main-content {
+  --background: #f8f9fa;
+}
+
+/* Contenedor del mapa */
+.map-container {
+  margin: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.map {
+  height: 50vh;
+  width: 100%;
+}
+
+/* Tarjeta de rutas */
+.route-card {
+  margin: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.route-header {
+  padding-bottom: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+.route-title {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.title-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.route-content {
+  padding-top: 15px;
+}
+
+.status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background: var(--light-color);
+  border-radius: 10px;
+}
+
+.status-label {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-button {
+  --border-radius: 10px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  height: 45px;
+}
+
+/* Tarjeta JSON */
+.json-card {
+  margin: 15px;
+  border-radius: 12px;
+}
+
+.json-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+.close-button {
+  --color: var(--medium-color);
+}
+
+.json-textarea {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  ion-spinner {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+  
+  p {
+    color: var(--medium-color);
+    font-size: 0.9rem;
+  }
+}
+
+/* FAB */
+.fab-container {
+  pointer-events: none;
+}
+
+.fab-button {
+  pointer-events: auto;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Modales */
+.route-modal, .saved-routes-modal {
+  --border-radius: 16px;
+  --width: 90%;
+  --max-width: 400px;
+}
+
+.modal-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  
+  .modal-title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.modal-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.config-card {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.config-item {
+  --border-radius: 8px;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.config-label {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.config-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  border-radius: 8px;
+  background: var(--light-color);
+  margin-top: 8px;
+}
+
+.save-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.save-button {
+  --border-radius: 10px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 50px;
+}
+
+/* Modal de rutas guardadas */
+.modal-toolbar {
+  --background: white;
+}
+
+.routes-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.routes-header {
+  padding-bottom: 0;
+}
+
+.routes-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--dark-color);
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.toggle-button {
+  --border-radius: 10px;
+  width: 80%;
+}
+
+.routes-list {
+  margin-top: 10px;
+}
+
+.route-item {
+  --border-radius: 10px;
+  --padding-start: 0;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.route-icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.route-label {
+  h3 {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 0.8rem;
+    color: var(--medium-color);
+  }
+}
+
+.route-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-btn {
+  --border-radius: 8px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  height: 32px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: var(--medium-color);
+  margin-bottom: 15px;
+}
+
+.empty-label {
+  h3 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+  }
+  
+  p {
+    color: var(--medium-color);
+    font-size: 0.9rem;
+  }
+}
+
+.close-modal-button {
+  --border-radius: 10px;
+  margin-top: 20px;
+  height: 45px;
+}
+
+/* Estilos específicos para el modal de configuración */
+.config-route-modal {
+  --height: auto;
+  --width: 90%;
+  --max-width: 380px;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Encabezado del modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  min-height: 60px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.close-button {
+  --color: white;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin: 0;
+  
+  ion-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* Contenido principal */
+.modal-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-item {
+  --border-radius: 12px;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --background: #f8f9fa;
+  margin: 0;
+}
+
+.input-label {
+  font-weight: 600;
+  color: var(--dark-color);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  
+  ion-icon {
+    color: var(--primary-color);
+    margin-right: 6px;
+    font-size: 1rem;
+  }
+}
+
+.route-input {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #e8e8e8;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+  
+  &:focus-within {
+    border-color: var(--primary-color);
+  }
+}
+
+/* Sección de información */
+.info-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #e8f5e8;
+  border-radius: 10px;
+  border-left: 4px solid var(--success-color);
+}
+
+.info-icon {
+  color: var(--success-color);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-size: 0.85rem;
+  color: #2d5016;
+  font-weight: 500;
+}
+
+.mapa{
+  margin-top: 4%;
+  display: flex;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #e0e0e0;
+}
+/* Sección de acción */
+.action-section {
+  margin-top: 10px;
+}
+
+.save-button {
+  --border-radius: 12px;
+  --box-shadow: 0 4px 15px rgba(0, 190, 75, 0.3);
+  height: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+  
+  &:not([disabled]):active {
+    transform: scale(0.98);
+  }
+}
+
+.button-spinner {
+  color: white;
+}
+
+/* Estados deshabilitados */
+.save-button[disabled] {
+  --background: #cccccc;
+  --color: #666666;
+  --box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Efectos de hover para dispositivos con mouse */
+@media (hover: hover) {
+  .close-button:hover {
+    --background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .save-button:not([disabled]):hover {
+    --box-shadow: 0 6px 20px rgba(0, 190, 75, 0.4);
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .modal-container {
+    background: #1e1e1e;
+  }
+  
+  .input-item {
+    --background: #2a2a2a;
+  }
+  
+  .route-input {
+    background: #2a2a2a;
+    border-color: #404040;
+    color: white;
+    
+    &:focus-within {
+      border-color: var(--primary-color);
+    }
+  }
+  
+  .info-section {
+    background: #1a2e1a;
+    border-left-color: var(--success-color);
+  }
+
+  .route-title {
+    color: white;
+  }
+  
+  .info-text {
+    color: #a8e6a8;
+  }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 320px) {
+  .config-route-modal {
+    --width: 95%;
+    --max-width: 300px;
+  }
+  
+  .modal-content {
+    padding: 15px;
+  }
+  
+  .modal-header {
+    padding: 12px 15px;
+  }
+  
+  .modal-title {
+    font-size: 1rem;
+  }
+}
+
+/* Animación de entrada */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.config-route-modal .modal-wrapper {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .main-content {
+    --background: #121212;
+  }
+  
+  .main-toolbar {
+    --background: #1e1e1e;
+    --color: white;
+  }
+  
+  .route-card, .json-card, .routes-card, .config-card {
+    --background: #1e1e1e;
+  }
+  
+  .status-container {
+    background: #2a2a2a;
+  }
+  
+  .json-textarea, .config-input {
+    background: #2a2a2a;
+    color: white;
+  }
+  
+  .map {
+    filter: invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2);
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .action-buttons {
+    flex-direction: row;
+  }
+  
+  .action-button {
+    flex: 1;
+  }
+  
+  .route-modal, .saved-routes-modal {
+    --width: 60%;
+    --max-width: 500px;
+  }
+}
